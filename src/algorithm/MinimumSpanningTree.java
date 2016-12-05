@@ -5,15 +5,15 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import logic.Algorithm;
 import logic.DataManager;
 import logic.Edge;
-import logic.Node;
+import logic.Vertex;
 
 public class MinimumSpanningTree extends Algorithm{
 	public DataManager solve(DataManager dataManager){
 		//dataManager.getInstance().getEdges();//SORTED?
 		CopyOnWriteArrayList<Edge> el = dataManager.getInstance().getEdges();
-		CopyOnWriteArrayList<Node> vl = dataManager.getInstance().getNodes();
+		CopyOnWriteArrayList<Vertex> vl = dataManager.getInstance().getVertices();
 		DataManager ret = new DataManager();
-		ret.getInstance().getNodes().addAll(vl);
+		ret.getInstance().getVertices().addAll(vl);
 		el.sort((o1,o2) -> o1.getCost().compareTo(o2.getCost()));
 		
 		//el.sort((o1,o2)-> (o1.getId() - o2.getId()));

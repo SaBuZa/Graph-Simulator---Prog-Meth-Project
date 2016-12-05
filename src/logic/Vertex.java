@@ -1,12 +1,13 @@
 package logic;
 
-public class Node {
+public class Vertex {
 	private int id;
 	private int color; // stores color as color id
-	public Node(){
+	//SHOULD WE USE COLOR CLASS AS PAINTING COLOR?
+	public Vertex(){
 		id = color = 0;
 	}
-	public Node(int id,int color){
+	public Vertex(int id,int color){
 		this.id = id;
 		this.color = color;
 	}

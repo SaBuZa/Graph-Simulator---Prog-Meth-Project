@@ -6,13 +6,13 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class DataManager {
 
 	private static final DataManager instance;
-	private CopyOnWriteArrayList<Node> nodes; //Always Sorted?
+	private CopyOnWriteArrayList<Vertex> vertices; //Always Sorted?
 	private CopyOnWriteArrayList<Edge> edges; //Always Sorted?
 	private boolean isValid;
 	private boolean isTree;
 	
 	public DataManager(){
-		nodes = new CopyOnWriteArrayList<Node>();
+		vertices = new CopyOnWriteArrayList<Vertex>();
 		edges = new CopyOnWriteArrayList<Edge>();
 		isValid = false;
 		isTree = false;
@@ -34,8 +34,8 @@ public class DataManager {
 		this.isTree = isTree;
 	}
 
-	public CopyOnWriteArrayList<Node> getNodes() {
-		return nodes;
+	public CopyOnWriteArrayList<Vertex> getVertices() {
+		return vertices;
 	}
 
 	public CopyOnWriteArrayList<Edge> getEdges() {
