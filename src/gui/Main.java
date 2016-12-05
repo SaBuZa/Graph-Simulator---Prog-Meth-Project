@@ -2,6 +2,7 @@ package gui;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
@@ -70,6 +71,15 @@ public class Main extends Application{
 		//Create Toolbox and SimulatorScreen
 		ToolBox toolBox = new ToolBox();
 		SimulatorScreen simScreen = new SimulatorScreen(SCREEN_WIDTH,SCREEN_HEIGHT);
+		/*
+		 * Do Everything in ToolBox Class instead
+		 * 
+		//Create button for Toolbox
+		Button b1 = new Button("Test1");
+		Button b2 = new Button("Test2");
+		
+		//Add button to Toolbox
+		*/
 		
 		root.setTop(menuBar);
 		root.setLeft(toolBox);
