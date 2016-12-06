@@ -1,15 +1,18 @@
 package logic;
 
 public class Edge {
-	private int id, from, to;
+	private int id,colorID;
+
 	private Cost cost;
+	private Vertex from,to;
 	
 	public Edge(){
-		id = from = to = 0;
+		id = 0;
 		cost = null;
+		from = to = null;
 	}
 	
-	public Edge(int id,int from,int to){
+	public Edge(int id,Vertex from,Vertex to){
 		this.id = id;
 		this.from = from;
 		this.to= to;
@@ -23,19 +26,19 @@ public class Edge {
 		this.id = id;
 	}
 
-	public int getFrom() {
+	public Vertex getFrom() {
 		return from;
 	}
 
-	public void setFrom(int from) {
+	public void setFrom(Vertex from) {
 		this.from = from;
 	}
 
-	public int getTo() {
+	public Vertex getTo() {
 		return to;
 	}
 
-	public void setTo(int to) {
+	public void setTo(Vertex to) {
 		this.to = to;
 	}
 
@@ -47,5 +50,11 @@ public class Edge {
 		this.cost = cost;
 	}
 	
-	
+	public int getColorID() {
+		return colorID;
+	}
+
+	public void setColorID(int colorID) {
+		this.colorID = colorID;
+	}
 }

@@ -21,8 +21,8 @@ public class MinimumSpanningTree extends Algorithm{
 		
 		DisjointSet dsu = new DisjointSet(vl.size());
 		for (Edge e : el ){
-			int u = e.getFrom();
-			int v = e.getTo();
+			int u = e.getFrom().getId();
+			int v = e.getTo().getId();
 			if (dsu.isUnion(u,v)) continue;
 			dsu.unify(u, v);
 			ret.getInstance().getEdges().add(e);

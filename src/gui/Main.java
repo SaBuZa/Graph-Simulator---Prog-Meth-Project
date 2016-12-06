@@ -10,6 +10,10 @@ import javafx.scene.control.ToolBar;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.stage.Modality;
+import javafx.stage.Popup;
 import javafx.stage.Stage;
 
 public class Main extends Application{
@@ -24,6 +28,17 @@ public class Main extends Application{
 	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub
 		InitializeGUI(primaryStage);
+		Stage secondaryStage = new Stage();
+		
+		secondaryStage.initModality(Modality.APPLICATION_MODAL);
+		secondaryStage.initOwner(primaryStage);
+		
+		/*
+		Popup popo = new Popup();
+		popo.getContent().addAll(new Circle(25,25,50,Color.BLUE));
+		popo.show(primaryStage);
+		popo.hide();
+		*/
 	}
 	
 	private void InitializeGUI(Stage primaryStage){

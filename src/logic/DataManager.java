@@ -3,11 +3,15 @@ package logic;
 import java.util.ArrayList;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+import javafx.scene.paint.Color;
+
 public class DataManager {
 
 	private static final DataManager instance;
 	private CopyOnWriteArrayList<Vertex> vertices; //Always Sorted?
 	private CopyOnWriteArrayList<Edge> edges; //Always Sorted?
+	private CopyOnWriteArrayList<Color> VColorList; //Vertex's color list
+	private CopyOnWriteArrayList<Color> EColorList; //Edge's color List
 	private boolean isValid;
 	private boolean isTree;
 	
@@ -16,6 +20,14 @@ public class DataManager {
 		edges = new CopyOnWriteArrayList<Edge>();
 		isValid = false;
 		isTree = false;
+	}
+	
+	static{
+		instance = new DataManager();
+	}
+	
+	public static DataManager getInstance(){
+		return instance;
 	}
 	
 	public boolean isValid() {
@@ -41,11 +53,5 @@ public class DataManager {
 	public CopyOnWriteArrayList<Edge> getEdges() {
 		return edges;
 	}
-	static{
-		instance = new DataManager();
-	}
 	
-	public static DataManager getInstance(){
-		return instance;
-	}
 }
