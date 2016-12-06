@@ -4,6 +4,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import logic.DataManager;
@@ -17,12 +18,12 @@ public class SimulatorScreen extends Canvas{
 	private CopyOnWriteArrayList<Edge> edges; //Always Sorted?
 	private CopyOnWriteArrayList<Color> VColorList;
 	private CopyOnWriteArrayList<Color> EColorList;
-	
 	GraphicsContext gc;
 	
 	public SimulatorScreen (int width, int height){
 		super(width, height);
 		this.resize(width, height);
+
 		vertices = DataManager.getInstance().getVertices();
 		edges = DataManager.getInstance().getEdges();
 		screen_height = height;
@@ -58,7 +59,7 @@ public class SimulatorScreen extends Canvas{
 	
 	public void drawVertex(int x,int y, int colorID){
 		//Color color = VColorList.get(colorID);
-		Color color = Color.WHITE;
+		Color color = Color.DARKBLUE;
 		gc.setFill(color);
 		gc.fillOval(x, y, 2*CIRCLE_RADIUS, 2*CIRCLE_RADIUS);
 		
@@ -68,7 +69,7 @@ public class SimulatorScreen extends Canvas{
 	
 	public void drawEdge(Vertex u, Vertex v, int colorID){//Always do this before vertex
 		//Color color = EColorList.get(colorID);
-		Color color = Color.WHITE;
+		Color color = Color.BLACK;
 		gc.setFill(color);
 		gc.strokeLine(u.getX() + CIRCLE_RADIUS, u.getY() + CIRCLE_RADIUS, v.getX() + CIRCLE_RADIUS, v.getY() + CIRCLE_RADIUS);
 	}

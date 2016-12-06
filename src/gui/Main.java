@@ -85,7 +85,11 @@ public class Main extends Application{
 		
 		//Create Toolbox and SimulatorScreen
 		ToolBox toolBox = new ToolBox();
+		StackPane centerPane = new StackPane();
 		SimulatorScreen simScreen = new SimulatorScreen(SCREEN_WIDTH,SCREEN_HEIGHT);
+		centerPane.getChildren().add(simScreen);
+		centerPane.setStyle("-fx-background-color: white");
+		
 		/*
 		 * Do Everything in ToolBox Class instead
 		 * 
@@ -98,7 +102,8 @@ public class Main extends Application{
 		
 		root.setTop(menuBar);
 		root.setLeft(toolBox);
-		root.setCenter(simScreen);
+		root.setCenter(centerPane);
+		//root.setCenter(simScreen);
 		/*
 		root.setTop(value);
 		root.setBottom(value);

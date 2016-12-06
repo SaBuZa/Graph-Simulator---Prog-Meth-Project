@@ -1,6 +1,6 @@
 package logic;
 
-public class Cost implements Comparable<Cost> {
+public abstract class Cost implements Comparable<Cost> {
 
 	@Override
 	public int compareTo(Cost arg0) {

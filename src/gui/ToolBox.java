@@ -12,7 +12,6 @@ public class ToolBox extends GridPane{
 	
 	public ToolBox(){
 		
-		
 		//Set ToolBox Properties
 		height = Main.SCREEN_HEIGHT;
 		width = Main.SCREEN_WIDTH/10;
