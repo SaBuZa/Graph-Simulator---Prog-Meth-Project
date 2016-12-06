@@ -18,7 +18,7 @@ import javafx.stage.Stage;
 
 public class Main extends Application{
 	
-	public static int SCREEN_WIDTH=500,SCREEN_HEIGHT=500;
+	public static int SCREEN_WIDTH=1280,SCREEN_HEIGHT=720;
 	
 	public static void main(String[] args) {
 		launch(args);
