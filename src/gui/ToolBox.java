@@ -1,10 +1,13 @@
 package gui;
 
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.ToolBar;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 
-public class ToolBox extends ToolBar{
+public class ToolBox extends GridPane{
 	private int height,width;
 	
 	public ToolBox(){
@@ -15,7 +18,9 @@ public class ToolBox extends ToolBar{
 		width = Main.SCREEN_WIDTH/10;
 		this.setPrefHeight(height);
 		this.setPrefWidth(width);
-		this.
+		this.setPadding(new Insets(10,10,10,10));
+		this.setHgap(10);
+		this.setVgap(10);
 		
 		//Set Initial Values
 		int btnHeight = height/15;
@@ -35,8 +40,16 @@ public class ToolBox extends ToolBar{
 		brushBtn.setPrefWidth(btnWidth);
 		brushBtn.setPrefHeight(btnHeight);
 		brushBtn.setPrefWidth(btnWidth);
+		
+		//brushBtn.setMaxSize(btnWidth, btnHeight);
+		Image image = new Image(Main.class.getResource("/images/testBrush.png").toExternalForm(),btnWidth/2,btnHeight/2,false,false);
+		ImageView imageView = new ImageView(image);
+		brushBtn.setGraphic(imageView);
 		//brushBtn.setGraphic(new ImageView("/images/testBrush.png"));
 		
-		this.getItems().addAll(b1, b2, brushBtn);
+		//this.getItems().addAll(b1, b2, brushBtn);
+		this.add(b1, 1, 1);
+		this.add(b2, 2, 1);
+		this.add(brushBtn, 1, 2);
 	}
 }
