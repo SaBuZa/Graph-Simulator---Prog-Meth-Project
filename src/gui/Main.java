@@ -18,7 +18,7 @@ import javafx.stage.Stage;
 
 public class Main extends Application{
 	
-	public static int SCREEN_WIDTH=1280,SCREEN_HEIGHT=720;
+	public static final int SCREEN_WIDTH=1280,SCREEN_HEIGHT=720;
 	
 	public static void main(String[] args) {
 		launch(args);
@@ -111,7 +111,6 @@ public class Main extends Application{
 		root.setRight(value);
 		root.setCenter(value);
 		*/
-		
 		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("Graph Simulator");

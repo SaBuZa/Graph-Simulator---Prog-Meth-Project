@@ -8,22 +8,23 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 
 public class ToolBox extends GridPane{
-	private int height,width;
+	
+	private static int h,w;
 	
 	public ToolBox(){
 		
 		//Set ToolBox Properties
-		height = Main.SCREEN_HEIGHT;
-		width = Main.SCREEN_WIDTH/10;
-		this.setPrefHeight(height);
-		this.setPrefWidth(width);
+		h = Main.SCREEN_HEIGHT;
+		w = Main.SCREEN_WIDTH/10;
+		this.setPrefHeight(h);
+		this.setPrefWidth(w);
 		this.setPadding(new Insets(10,10,10,10));
 		this.setHgap(10);
 		this.setVgap(10);
 		
 		//Set Initial Values
-		int btnHeight = height/15;
-		int btnWidth = width/3;
+		int btnHeight = h/15;
+		int btnWidth = w/3;
 		
 		//Create Components
 		Button b1 = new Button();
@@ -41,6 +42,9 @@ public class ToolBox extends GridPane{
 		brushBtn.setPrefWidth(btnWidth);
 		
 		//brushBtn.setMaxSize(btnWidth, btnHeight);
+		//ClassLoader.getSystemResource(arg0)
+		//Image image = new Image(ClassLoader.getSystemResource("res/images/testBrush.png").toString(),btnWidth/2,btnHeight/2,false,false);
+		//System.out.println(ClassLoader.getSystemResource("res/images/testBrush.png").toString());
 		Image image = new Image(Main.class.getResource("/images/testBrush.png").toExternalForm(),btnWidth/2,btnHeight/2,false,false);
 		ImageView imageView = new ImageView(image);
 		brushBtn.setGraphic(imageView);
@@ -51,4 +55,14 @@ public class ToolBox extends GridPane{
 		this.add(b2, 2, 1);
 		this.add(brushBtn, 1, 2);
 	}
+
+	public static int getH() {
+		return h;
+	}
+
+	public static int getW() {
+		return w;
+	}
+	
+	
 }

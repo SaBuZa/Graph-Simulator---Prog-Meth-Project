@@ -1,5 +1,5 @@
 package logic;
 
-public class InputManager {
+public class InputManager { //Detect Dragged Mouse
 
 }
