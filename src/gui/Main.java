@@ -32,7 +32,7 @@ public class Main extends Application {
 		primaryStage.setHeight(Screen.getPrimary().getVisualBounds().getHeight());
 		primaryStage.setResizable(false);
 		primaryStage.show();
-		SimulatorScreen.getInstance().initailize();
+		SimulatorScreen.getInstance().initialize();
 	}
 
 	public void stop() {

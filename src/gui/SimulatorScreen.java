@@ -31,7 +31,7 @@ public class SimulatorScreen extends StackPane {
 		return instance;
 	}
 
-	public void initailize() {
+	public void initialize() {
 		this.setClip(new Rectangle(getWidth(), getHeight()));
 	}
 
