@@ -99,7 +99,7 @@ public class GraphData implements ISerializable {
 
 	public void addVertex(Vertex vertex) throws InvalidVertexException {
 		if (vertices.containsKey(vertex.getName())) {
-			throw new InvalidVertexException(1);
+			throw new InvalidVertexException();
 		} else {
 			vertices.put(vertex.getName(), vertex);
 			vertex.draw();
@@ -161,7 +161,7 @@ public class GraphData implements ISerializable {
 		try {
 			Vertex targetVertex = getVertex(target);
 			if (vertices.containsKey(name)) {
-				throw new InvalidVertexException(1);
+				throw new InvalidVertexException();
 			} else {
 				vertices.remove(targetVertex.getName());
 				targetVertex.setName(name);

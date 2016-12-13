@@ -7,10 +7,6 @@ public class InvalidEdgeException extends Exception {
 
 	private String information;
 
-	public String getInformation() {
-		return information;
-	}
-
 	public InvalidEdgeException(int type) {
 		if (type == 1) {
 			information = "Edge Cannot Be Self-Loop";
