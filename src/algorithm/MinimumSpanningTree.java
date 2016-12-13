@@ -1,32 +1,56 @@
 package algorithm;
 
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 
-import logic.Algorithm;
-import logic.DataManager;
+import javafx.scene.media.AudioClip;
+
+import java.util.ArrayList;
+
 import logic.Edge;
+import logic.GraphData;
 import logic.Vertex;
+import utility.ResourceLoader;
 
-public class MinimumSpanningTree extends Algorithm{
-	public DataManager solve(DataManager dataManager){
-		//dataManager.getInstance().getEdges();//SORTED?
-		CopyOnWriteArrayList<Edge> el = dataManager.getInstance().getEdges();
-		CopyOnWriteArrayList<Vertex> vl = dataManager.getInstance().getVertices();
-		DataManager ret = new DataManager();
-		ret.getInstance().getVertices().addAll(vl);
-		el.sort((o1,o2) -> o1.getCost().compareTo(o2.getCost()));
-		
-		//el.sort((o1,o2)-> (o1.getId() - o2.getId()));
-		//el.sort ((o1,o2) -> (o1.getId().compareTo(o2.getId())) );
-		
-		DisjointSet dsu = new DisjointSet(vl.size());
-		for (Edge e : el ){
-			int u = e.getFrom().getId();
-			int v = e.getTo().getId();
-			if (dsu.isUnion(u,v)) continue;
-			dsu.unify(u, v);
-			ret.getInstance().getEdges().add(e);
-		}
-		return ret;
+public class MinimumSpanningTree extends Algorithm {
+
+	private static MinimumSpanningTree instance = new MinimumSpanningTree();
+	private HashMap<Vertex, Vertex> parents = new HashMap<>();
+
+	public static MinimumSpanningTree getInstance() {
+		return instance;
 	}
+
+	private Vertex getParent(Vertex vertex) {
+		if (vertex == parents.get(vertex)) {
+			return vertex;
+		} else {
+			Vertex parent = getParent(parents.get(vertex));
+			parents.put(vertex, parent);
+			return parent;
+		}
+	}
+
+	public void solve() {
+		parents.clear();
+		for (Vertex vertex : GraphData.getInstance().getVertices().values()) {
+			vertex.setIsSelected(true);
+			parents.put(vertex, vertex);
+		}
+		ArrayList<Edge> edges = new ArrayList<Edge>(GraphData.getInstance().getEdges().values());
+		Collections.sort(edges);
+		for (Edge edge : edges) {
+			Vertex fromParent = getParent(edge.getFrom());
+			Vertex toParent = getParent(edge.getTo());
+			if (fromParent == toParent) {
+				edge.setIsSelected(false);
+			} else {
+				parents.put(toParent, fromParent);
+				edge.setIsSelected(true);
+			}
+		}
+		AudioClip audioClip = ResourceLoader.loadAudioClip("ding.mp3");
+		audioClip.play();
+	}
+
 }
