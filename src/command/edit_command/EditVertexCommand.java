@@ -51,10 +51,6 @@ public class EditVertexCommand extends Command {
 		}
 	}
 
-	boolean isInvalid(TextField name) {
-		return name.getText().trim().isEmpty();
-	}
-
 	@Override
 	public void use() {
 		Dialog<EditVertexData> dialog = new Dialog<>();
@@ -106,7 +102,7 @@ public class EditVertexCommand extends Command {
 		name.setOnKeyReleased(new EventHandler<KeyEvent>() {
 			@Override
 			public void handle(KeyEvent event) {
-				addButton.setDisable(isInvalid(name));
+				addButton.setDisable(name.getText().trim().isEmpty());
 			}
 		});
 

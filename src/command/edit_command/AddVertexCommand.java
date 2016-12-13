@@ -35,10 +35,6 @@ public class AddVertexCommand extends Command {
 		return GUISetting.ADD_VERTEX_IMAGE_PATH;
 	}
 
-	boolean isInvalid(TextField name) {
-		return name.getText().trim().isEmpty();
-	}
-
 	@Override
 	public void use() {
 		Dialog<Pair<String, Boolean>> dialog = new Dialog<>();
@@ -72,7 +68,7 @@ public class AddVertexCommand extends Command {
 		name.setOnKeyReleased(new EventHandler<KeyEvent>() {
 			@Override
 			public void handle(KeyEvent event) {
-				addButton.setDisable(isInvalid(name));
+				addButton.setDisable(name.getText().trim().isEmpty());
 			}
 		});
 

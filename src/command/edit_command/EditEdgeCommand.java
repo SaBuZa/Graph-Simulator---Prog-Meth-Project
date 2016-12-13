@@ -54,10 +54,6 @@ public class EditEdgeCommand extends Command {
 		}
 	}
 
-	boolean isInvalid(TextField cost) {
-		return !cost.getText().trim().matches("^[0-9]+$");
-	}
-
 	@Override
 	public void use() {
 		Dialog<EditEdgeData> dialog = new Dialog<>();
@@ -114,7 +110,7 @@ public class EditEdgeCommand extends Command {
 		cost.setOnKeyReleased(new EventHandler<KeyEvent>() {
 			@Override
 			public void handle(KeyEvent event) {
-				addButton.setDisable(isInvalid(cost));
+				addButton.setDisable(!cost.getText().trim().matches("^[0-9]+$"));
 			}
 		});
 
