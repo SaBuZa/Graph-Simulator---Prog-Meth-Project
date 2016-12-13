@@ -24,10 +24,6 @@ public abstract class Entity {
 		this.isSelected = isSelected;
 	}
 
-	public Thread getThread() {
-		return thread;
-	}
-
 	public void draw() {
 		thread = new Thread(new EntityRunnable(this));
 		ThreadHolder.addThread(thread);

@@ -54,16 +54,10 @@ public class GraphData implements ISerializable {
 				data += text + "\n";
 			}
 			bufferedReader.close();
-		} catch (IOException e) {
-			throw e;
-		}
-		load(data);
-	}
-
-	public static void load(String data) throws DeserializeFailException {
-		try {
 			instance.deserialize(data);
 		} catch (DeserializeFailException e) {
+			throw e;
+		} catch (IOException e) {
 			throw e;
 		}
 	}

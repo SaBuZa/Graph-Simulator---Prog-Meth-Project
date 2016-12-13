@@ -6,10 +6,6 @@ public class ThreadHolder {
 
 	private static HashSet<Thread> threads = new HashSet<Thread>();
 
-	public static HashSet<Thread> getThreads() {
-		return threads;
-	}
-
 	public static void addThread(Thread thread) {
 		threads.add(thread);
 	}

@@ -36,16 +36,8 @@ public class Edge extends Entity implements ISerializable, Comparable<Edge> {
 		return from;
 	}
 
-	public void setFrom(Vertex from) {
-		this.from = from;
-	}
-
 	public Vertex getTo() {
 		return to;
-	}
-
-	public void setTo(Vertex to) {
-		this.to = to;
 	}
 
 	public double getCost() {
@@ -54,14 +46,6 @@ public class Edge extends Entity implements ISerializable, Comparable<Edge> {
 
 	public void setCost(double cost) {
 		this.cost = cost;
-	}
-
-	public Line getLine() {
-		return line;
-	}
-
-	public void setLine(Line line) {
-		this.line = line;
 	}
 
 	public void sortVertices() {
@@ -115,10 +99,10 @@ public class Edge extends Entity implements ISerializable, Comparable<Edge> {
 	public void deserialize(String serializedData) throws DeserializeFailException {
 		try {
 			String[] data = serializedData.trim().split(" +");
-			this.setFrom(GraphData.getInstance().getVertex(data[0]));
-			this.setTo(GraphData.getInstance().getVertex(data[1]));
-			this.setCost(Double.parseDouble(data[2]));
-			this.setIsSelected(Boolean.parseBoolean(data[3]));
+			from = GraphData.getInstance().getVertex(data[0]);
+			to = GraphData.getInstance().getVertex(data[1]);
+			cost = Double.parseDouble(data[2]);
+			isSelected = Boolean.parseBoolean(data[3]);
 		} catch (Exception e) {
 			throw new DeserializeFailException();
 		}
