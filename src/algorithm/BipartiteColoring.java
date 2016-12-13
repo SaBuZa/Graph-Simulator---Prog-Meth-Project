@@ -70,7 +70,7 @@ public class BipartiteColoring extends Algorithm {
 		}
 		if (fail) {
 			Alert alert = new Alert(AlertType.ERROR);
-			alert.setTitle("Bipartite Coloring");
+			alert.setTitle("Error!");
 			alert.setHeaderText(null);
 			alert.setContentText("Graph is not a Bipartite Graph.");
 			alert.showAndWait();

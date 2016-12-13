@@ -15,37 +15,37 @@ import utility.ResourceLoader;
 public class MinimumSpanningTree extends Algorithm {
 
 	private static MinimumSpanningTree instance = new MinimumSpanningTree();
-	private HashMap<Vertex, Vertex> parents = new HashMap<>();
+	private HashMap<Vertex, Vertex> ancestors = new HashMap<>();
 
 	public static MinimumSpanningTree getInstance() {
 		return instance;
 	}
 
-	private Vertex getParent(Vertex vertex) {
-		if (vertex == parents.get(vertex)) {
+	private Vertex getRoot(Vertex vertex) {
+		if (vertex == ancestors.get(vertex)) {
 			return vertex;
 		} else {
-			Vertex parent = getParent(parents.get(vertex));
-			parents.put(vertex, parent);
-			return parent;
+			Vertex ancestor = getRoot(ancestors.get(vertex));
+			ancestors.put(vertex, ancestor);
+			return ancestor;
 		}
 	}
 
 	public void solve() {
-		parents.clear();
+		ancestors.clear();
 		for (Vertex vertex : GraphData.getInstance().getVertices().values()) {
 			vertex.setIsSelected(true);
-			parents.put(vertex, vertex);
+			ancestors.put(vertex, vertex);
 		}
 		ArrayList<Edge> edges = new ArrayList<Edge>(GraphData.getInstance().getEdges().values());
 		Collections.sort(edges);
 		for (Edge edge : edges) {
-			Vertex fromParent = getParent(edge.getFrom());
-			Vertex toParent = getParent(edge.getTo());
-			if (fromParent == toParent) {
+			Vertex fromRoot = getRoot(edge.getFrom());
+			Vertex toRoot = getRoot(edge.getTo());
+			if (fromRoot == toRoot) {
 				edge.setIsSelected(false);
 			} else {
-				parents.put(toParent, fromParent);
+				ancestors.put(toRoot, fromRoot);
 				edge.setIsSelected(true);
 			}
 		}

@@ -9,7 +9,7 @@ public class InvalidVertexException extends Exception {
 		Alert alert = new Alert(AlertType.ERROR);
 		alert.setTitle("Error!");
 		alert.setHeaderText(null);
-		alert.setContentText("Vertex Name Already Exist");
+		alert.setContentText("Vertex Name Already Used");
 		alert.showAndWait();
 	}
 

@@ -11,7 +11,7 @@ public class InvalidEdgeException extends Exception {
 		if (type == 1) {
 			information = "Edge Cannot Be Self-Loop";
 		}
-		if (type == 2) {
+		else {
 			information = "Edge Between Vertices Already Exist";
 		}
 	};
