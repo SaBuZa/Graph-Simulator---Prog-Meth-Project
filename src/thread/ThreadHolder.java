@@ -1,12 +1,12 @@
 package thread;
 
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.HashSet;
 
 public class ThreadHolder {
 
-	private static CopyOnWriteArrayList<Thread> threads = new CopyOnWriteArrayList<Thread>();
+	private static HashSet<Thread> threads = new HashSet<Thread>();
 
-	public static CopyOnWriteArrayList<Thread> getThreads() {
+	public static HashSet<Thread> getThreads() {
 		return threads;
 	}
 
@@ -22,7 +22,7 @@ public class ThreadHolder {
 		for (Thread thread : threads) {
 			thread.interrupt();
 		}
-		threads = new CopyOnWriteArrayList<Thread>();
+		threads.clear();
 	}
 
 }
