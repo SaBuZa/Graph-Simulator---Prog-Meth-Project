@@ -8,9 +8,8 @@ import utility.ResourceLoader;
 
 public class ToolButton extends ImageView {
 
-	public ToolButton(Command command) {
-		this.setImage(
-				ResourceLoader.loadImage(command.getImagePath(), GUISetting.PICTURE_WIDTH, GUISetting.PICTURE_HEIGHT));
+	public ToolButton(Command command, double size) {
+		this.setImage(ResourceLoader.loadImage(command.getImagePath(), size, size));
 		this.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {

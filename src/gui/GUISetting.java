@@ -3,8 +3,8 @@ package gui;
 public class GUISetting {
 	public static final int GAP_SIZE = 20;
 	public static final int PADDING_SIZE = 20;
-	public static final int PICTURE_WIDTH = 100;
-	public static final int PICTURE_HEIGHT = 100;
+	public static final int PICTURE_WIDTH = 50;
+	public static final int PICTURE_HEIGHT = 50;
 
 	public static final String DUMMY_IMAGE_PATH = "dummy.png";
 

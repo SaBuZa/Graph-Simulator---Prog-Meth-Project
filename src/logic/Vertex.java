@@ -18,14 +18,12 @@ public class Vertex extends Entity implements ISerializable {
 	private String name;
 	private double x, y;
 
+	private Circle circle;
+	private Label label;
+
 	private double clickX, clickY;
 	private double mouseX, mouseY;
 	private double oldX, oldY;
-
-	private Circle circle;
-	private Label label;
-	private double labelWidth;
-	private double labelHeight;
 
 	private HashSet<Edge> edges;
 
@@ -150,8 +148,8 @@ public class Vertex extends Entity implements ISerializable {
 		circle.setRadius(SettingData.getInstance().getVertexRadius());
 		circle.setFill(ColorManager.getVertexColor(isSelected));
 		Font font = new Font("Arial", SettingData.getInstance().getVertexFontSize());
-		labelWidth = Toolkit.getToolkit().getFontLoader().computeStringWidth(name, font);
-		labelHeight = Toolkit.getToolkit().getFontLoader().getFontMetrics(font).getLineHeight();
+		double labelWidth = Toolkit.getToolkit().getFontLoader().computeStringWidth(name, font);
+		double labelHeight = Toolkit.getToolkit().getFontLoader().getFontMetrics(font).getLineHeight();
 		label.setFont(font);
 		label.setTextFill(ColorManager.getVertexLabelColor(isSelected));
 		fixOverflow();

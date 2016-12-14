@@ -140,6 +140,8 @@ public class GraphData implements ISerializable {
 		try {
 			Edge edge = getEdge(vertex1, vertex2);
 			edges.remove(new Pair<>(edge.getFrom(), edge.getTo()));
+			edge.getFrom().removeEdge(edge);
+			edge.getTo().removeEdge(edge);
 			edge.destroy();
 		} catch (EdgeNotFoundException e) {
 			throw e;

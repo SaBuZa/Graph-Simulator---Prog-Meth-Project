@@ -15,8 +15,6 @@ public class Edge extends Entity implements ISerializable, Comparable<Edge> {
 
 	private Line line;
 	private Label label;
-	private double labelWidth;
-	private double labelHeight;
 
 	public Edge() {
 		super();
@@ -74,8 +72,8 @@ public class Edge extends Entity implements ISerializable, Comparable<Edge> {
 		line.setTranslateY(Math.min(from.getY(), to.getY()));
 		line.setStroke(ColorManager.getEdgeColor(isSelected));
 		Font font = new Font("Arial", SettingData.getInstance().getEdgeFontSize());
-		labelWidth = Toolkit.getToolkit().getFontLoader().computeStringWidth(Double.toString(cost), font);
-		labelHeight = Toolkit.getToolkit().getFontLoader().getFontMetrics(font).getLineHeight();
+		double labelWidth = Toolkit.getToolkit().getFontLoader().computeStringWidth(Double.toString(cost), font);
+		double labelHeight = Toolkit.getToolkit().getFontLoader().getFontMetrics(font).getLineHeight();
 		label.setFont(font);
 		label.setTextFill(ColorManager.getEdgeLabelColor(isSelected));
 		label.setTranslateX(from.getX() / 2 + to.getX() / 2 - labelWidth / 2);

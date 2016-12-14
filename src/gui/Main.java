@@ -24,7 +24,8 @@ public class Main extends Application {
 		Main.primaryStage = primaryStage;
 		BorderPane root = new BorderPane();
 		root.setTop(new MenuBox());
-		root.setLeft(new ToolBox());
+		ToolBox toolBox = new ToolBox();
+		root.setLeft(toolBox);
 		root.setCenter(SimulatorScreen.getInstance());
 		primaryStage.setScene(new Scene(root));
 		primaryStage.setTitle("Graph Simulator");
@@ -32,6 +33,7 @@ public class Main extends Application {
 		primaryStage.setHeight(Screen.getPrimary().getVisualBounds().getHeight());
 		primaryStage.setResizable(false);
 		primaryStage.show();
+		toolBox.initialize();
 		SimulatorScreen.getInstance().initialize();
 	}
 
