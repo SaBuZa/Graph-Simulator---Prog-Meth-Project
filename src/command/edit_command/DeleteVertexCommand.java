@@ -86,8 +86,6 @@ public class DeleteVertexCommand extends Command {
 				GraphData.getInstance().deleteVertex(vertexData);
 			} catch (VertexNotFoundException e) {
 				e.showAlert();
-			} catch (EdgeNotFoundException e) {
-				e.showAlert();
 			}
 		});
 	}

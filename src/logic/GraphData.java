@@ -121,17 +121,16 @@ public class GraphData implements ISerializable {
 		}
 	}
 
-	public void deleteVertex(String name) throws VertexNotFoundException, EdgeNotFoundException {
+	public void deleteVertex(String name) throws VertexNotFoundException {
 		try {
 			Vertex vertex = getVertex(name);
 			for (Edge edge : vertex.getEdges()) {
-				deleteEdge(edge.getFrom(), edge.getTo());
+				edges.remove(edge);
+				edge.destroy();
 			}
 			vertices.remove(name);
 			vertex.destroy();
 		} catch (VertexNotFoundException e) {
-			throw e;
-		} catch (EdgeNotFoundException e) {
 			throw e;
 		}
 	}
