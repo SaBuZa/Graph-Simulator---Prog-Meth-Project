@@ -110,7 +110,7 @@ public class AddEdgeCommand extends Command {
 		cost.setOnKeyReleased(new EventHandler<KeyEvent>() {
 			@Override
 			public void handle(KeyEvent event) {
-				addButton.setDisable(!cost.getText().trim().matches("^[0-9]+$"));
+				addButton.setDisable(!cost.getText().trim().matches("^[0-9]+(\\.[0-9]+)?$"));
 			}
 		});
 
